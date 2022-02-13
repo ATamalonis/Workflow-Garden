@@ -1,0 +1,72 @@
+
+
+{
+  "stepData": {
+    "text-helpers-1": {
+      "name": "text-helpers-1",
+      "properties": {
+        "text": {
+          "type": "jsonpath",
+          "value": "$.steps.text-helpers-2.result"
+        }
+      },
+      "metadata": {
+        "title": "To proper case",
+        "connector": {
+          "name": "text-helpers",
+          "version": "3.0"
+        },
+        "operation": "proper_case",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "text-helpers-2": {
+      "name": "text-helpers-2",
+      "properties": {
+        
+      },
+      "metadata": {
+        "title": "To lower case",
+        "connector": {
+          "name": "text-helpers",
+          "version": "3.0"
+        },
+        "operation": "lower_case",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    }
+  },
+  "structure": [
+    {
+      "name": "text-helpers-1",
+      "type": "normal",
+      "content": {
+        
+      }
+    },
+    {
+      "name": "text-helpers-2",
+      "type": "normal",
+      "content": {
+        
+      }
+    }
+  ],
+  "version": "1.0.0"
+}
