@@ -1,1 +1,557 @@
-{"stepData":{"loop-1":{"name":"loop-1","properties":{},"metadata":{"title":"Loop","connector":{"name":"loop","version":"1.1"},"operation":"loop_forever","output_schema":{},"error_handling":{}},"errors":[]},"storage-2":{"name":"storage-2","properties":{"scope":{"type":"string","value":"Current Run"},"key":{"type":"string","value":"last_date"},"default_value":{"type":"string","value":"2021-03-09T09:31:07.133Z"}},"metadata":{"title":"Get last_date","connector":{"name":"storage","version":"1.4"},"operation":"get","output_schema":{},"error_handling":{}},"errors":[]},"asana-1":{"name":"asana-1","properties":{"access_token":{"type":"jsonpath","value":"$.auth.access_token"},"gid":{"type":"string","value":"14389630051220"},"search_parameters":{"type":"array","value":[{"type":"object","value":{"name":{"type":"string","value":"projects.any"},"value":{"type":"string","value":"1200039554335056"}}},{"type":"object","value":{"name":{"type":"string","value":"created_at.after"},"value":{"type":"jsonpath","value":"$.steps.storage-2.value"}}},{"type":"object","value":{"name":{"type":"string","value":"resource_subtype"},"value":{"type":"string","value":"task"}}}]},"sort_by":{"type":"string","value":"created_at"},"sort_ascending":{"type":"boolean","value":true}},"metadata":{"auth_uuid":"aaaaaa","title":"Asana","connector":{"name":"asana","version":"5.2"},"operation":"search_tasks","output_schema":{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"data":{"type":"array","items":{"type":"object","properties":{"gid":{"type":"string"},"name":{"type":"string"},"resource_type":{"type":"string"}},"required":["gid","name","resource_type"]}}}},"error_handling":{}},"errors":[]},"loop-2":{"name":"loop-2","properties":{"array":{"type":"jsonpath","value":"$.steps.asana-1.data"}},"metadata":{"title":"Loop","connector":{"name":"loop","version":"1.1"},"operation":"loop_array","output_schema":{"type":"object","$schema":"http://json-schema.org/draft-03/schema","id":"http://jsonschema.net","required":true,"additionalProperties":false,"properties":{"value":{"type":["string","number","object","array","boolean","null"],"id":"http://jsonschema.net/item"},"count":{"type":"number","id":"http://jsonschema.net/total"},"index":{"type":"number","id":"http://jsonschema.net/index"},"is_first":{"type":"boolean","id":"http://jsonschema.net/is_first"},"is_last":{"type":"boolean","id":"http://jsonschema.net/is_last"}}},"error_handling":{}},"errors":[]},"asana-2":{"name":"asana-2","properties":{"access_token":{"type":"jsonpath","value":"$.auth.access_token"},"workspace_id":{"type":"string","value":"14389630051220"},"task_id":{"type":"jsonpath","value":"$.steps.loop-2.value.gid"}},"metadata":{"auth_uuid":"aaaaaa","title":"Asana","connector":{"name":"asana","version":"4.15"},"operation":"get_task","output_schema":{},"error_handling":{}},"errors":[]},"break-loop-3":{"name":"break-loop-3","properties":{},"metadata":{"title":"Break loop","connector":{"name":"break-loop","version":"1.0"},"operation":"break","output_schema":{},"error_handling":{}},"errors":[]},"storage-3":{"name":"storage-3","properties":{"scope":{"type":"string","value":"Current Run"},"key":{"type":"string","value":"last_date"},"value":{"type":"jsonpath","value":"$.steps.asana-2.data.created_at"}},"metadata":{"title":"Set last_date","connector":{"name":"storage","version":"1.4"},"operation":"set","output_schema":{},"error_handling":{}},"errors":[]},"break-loop-2":{"name":"break-loop-2","properties":{},"metadata":{"title":"Break loop","connector":{"name":"break-loop","version":"1.0"},"operation":"break","output_schema":{},"error_handling":{}},"errors":[]},"storage-4":{"name":"storage-4","properties":{"scope":{"type":"string","value":"Current Run"},"key":{"type":"string","value":"last_date"},"default_value":{"type":"string","value":"1900-01-01"}},"metadata":{"title":"Get last_date","connector":{"name":"storage","version":"1.4"},"operation":"get","output_schema":{},"error_handling":{}},"errors":[]},"boolean-condition-1":{"name":"boolean-condition-1","properties":{"property":{"type":"jsonpath","value":"$.steps.http-client-1.response.body.nextPage"}},"metadata":{"title":"nextPage exists?","connector":{"name":"boolean-condition","version":"2.3"},"operation":"property_exists","output_schema":{},"error_handling":{}},"errors":[]},"storage-1":{"name":"storage-1","properties":{"scope":{"type":"string","value":"Current Run"},"key":{"type":"string","value":"next_page"},"value":{"type":"jsonpath","value":"$.steps.http-client-1.response.body.nextPage"}},"metadata":{"title":"Set stored next_page","connector":{"name":"storage","version":"1.4"},"operation":"set","output_schema":{},"error_handling":{}},"errors":[]},"break-loop-1":{"name":"break-loop-1","properties":{},"metadata":{"title":"Break loop","connector":{"name":"break-loop","version":"1.0"},"operation":"break","output_schema":{},"error_handling":{}},"errors":[]}},"structure":[{"name":"loop-1","type":"loop","content":{"_loop":[{"name":"storage-2","type":"normal","content":{}},{"name":"asana-1","type":"normal","content":{}},{"name":"loop-2","type":"loop","content":{"_loop":[{"name":"asana-2","type":"normal","content":{}},{"name":"break-loop-3","type":"break","content":{},"target":"loop-2"},{"name":"storage-3","type":"normal","content":{}}]}},{"name":"break-loop-2","type":"break","content":{},"target":"loop-1"},{"name":"storage-4","type":"normal","content":{}},{"name":"boolean-condition-1","type":"branch","content":{"true":[{"name":"storage-1","type":"normal","content":{}}],"false":[{"name":"break-loop-1","type":"break","content":{},"target":"loop-1"}]}}]}}],"version":"1.0.0"}
+{&quot;stepData&quot;:{&quot;loop-1&quot;:{&quot;name&quot;:&quot;loop-1&quot;,&quot;properties&quot;:{},&quot;metadata&quot;:{&quot;title&quot;:&quot;Loop&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;loop&quot;,&quot;version&quot;:&quot;1.1&quot;},&quot;operation&quot;:&quot;loop_forever&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;storage-2&quot;:{&quot;name&quot;:&quot;storage-2&quot;,&quot;properties&quot;:{&quot;scope&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Current Run&quot;},&quot;key&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;last_date&quot;},&quot;default_value&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;2021-03-09T09:31:07.133Z&quot;}},&quot;metadata&quot;:{&quot;title&quot;:&quot;Get last_date&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;storage&quot;,&quot;version&quot;:&quot;1.4&quot;},&quot;operation&quot;:&quot;get&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;asana-1&quot;:{&quot;name&quot;:&quot;asana-1&quot;,&quot;properties&quot;:{&quot;access_token&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.auth.access_token&quot;},&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;14389630051220&quot;},&quot;search_parameters&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;projects.any&quot;},&quot;value&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;1200039554335056&quot;}}},{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;created_at.after&quot;},&quot;value&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.storage-2.value&quot;}}},{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;resource_subtype&quot;},&quot;value&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;task&quot;}}}]},&quot;sort_by&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;created_at&quot;},&quot;sort_ascending&quot;:{&quot;type&quot;:&quot;boolean&quot;,&quot;value&quot;:true}},&quot;metadata&quot;:{&quot;auth_uuid&quot;:&quot;aaaaaa&quot;,&quot;title&quot;:&quot;Asana&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;asana&quot;,&quot;version&quot;:&quot;5.2&quot;},&quot;operation&quot;:&quot;search_tasks&quot;,&quot;output_schema&quot;:{&quot;$schema&quot;:&quot;http://json-schema.org/draft-04/schema#&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;data&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;items&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;}},&quot;required&quot;:[&quot;gid&quot;,&quot;name&quot;,&quot;resource_type&quot;]}}}},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;loop-2&quot;:{&quot;name&quot;:&quot;loop-2&quot;,&quot;properties&quot;:{&quot;array&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.asana-1.data&quot;}},&quot;metadata&quot;:{&quot;title&quot;:&quot;Loop&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;loop&quot;,&quot;version&quot;:&quot;1.1&quot;},&quot;operation&quot;:&quot;loop_array&quot;,&quot;output_schema&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;$schema&quot;:&quot;http://json-schema.org/draft-03/schema&quot;,&quot;id&quot;:&quot;http://jsonschema.net&quot;,&quot;required&quot;:true,&quot;additionalProperties&quot;:false,&quot;properties&quot;:{&quot;value&quot;:{&quot;type&quot;:[&quot;string&quot;,&quot;number&quot;,&quot;object&quot;,&quot;array&quot;,&quot;boolean&quot;,&quot;null&quot;],&quot;id&quot;:&quot;http://jsonschema.net/item&quot;},&quot;count&quot;:{&quot;type&quot;:&quot;number&quot;,&quot;id&quot;:&quot;http://jsonschema.net/total&quot;},&quot;index&quot;:{&quot;type&quot;:&quot;number&quot;,&quot;id&quot;:&quot;http://jsonschema.net/index&quot;},&quot;is_first&quot;:{&quot;type&quot;:&quot;boolean&quot;,&quot;id&quot;:&quot;http://jsonschema.net/is_first&quot;},&quot;is_last&quot;:{&quot;type&quot;:&quot;boolean&quot;,&quot;id&quot;:&quot;http://jsonschema.net/is_last&quot;}}},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;asana-2&quot;:{&quot;name&quot;:&quot;asana-2&quot;,&quot;properties&quot;:{&quot;access_token&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.auth.access_token&quot;},&quot;workspace_id&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;14389630051220&quot;},&quot;task_id&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.loop-2.value.gid&quot;}},&quot;metadata&quot;:{&quot;auth_uuid&quot;:&quot;aaaaaa&quot;,&quot;title&quot;:&quot;Asana&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;asana&quot;,&quot;version&quot;:&quot;4.15&quot;},&quot;operation&quot;:&quot;get_task&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;break-loop-3&quot;:{&quot;name&quot;:&quot;break-loop-3&quot;,&quot;properties&quot;:{},&quot;metadata&quot;:{&quot;title&quot;:&quot;Break loop&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;break-loop&quot;,&quot;version&quot;:&quot;1.0&quot;},&quot;operation&quot;:&quot;break&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;storage-3&quot;:{&quot;name&quot;:&quot;storage-3&quot;,&quot;properties&quot;:{&quot;scope&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Current Run&quot;},&quot;key&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;last_date&quot;},&quot;value&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.asana-2.data.created_at&quot;}},&quot;metadata&quot;:{&quot;title&quot;:&quot;Set last_date&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;storage&quot;,&quot;version&quot;:&quot;1.4&quot;},&quot;operation&quot;:&quot;set&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;break-loop-2&quot;:{&quot;name&quot;:&quot;break-loop-2&quot;,&quot;properties&quot;:{},&quot;metadata&quot;:{&quot;title&quot;:&quot;Break loop&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;break-loop&quot;,&quot;version&quot;:&quot;1.0&quot;},&quot;operation&quot;:&quot;break&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;storage-4&quot;:{&quot;name&quot;:&quot;storage-4&quot;,&quot;properties&quot;:{&quot;scope&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Current Run&quot;},&quot;key&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;last_date&quot;},&quot;default_value&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;1900-01-01&quot;}},&quot;metadata&quot;:{&quot;title&quot;:&quot;Get last_date&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;storage&quot;,&quot;version&quot;:&quot;1.4&quot;},&quot;operation&quot;:&quot;get&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;boolean-condition-1&quot;:{&quot;name&quot;:&quot;boolean-condition-1&quot;,&quot;properties&quot;:{&quot;property&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.http-client-1.response.body.nextPage&quot;}},&quot;metadata&quot;:{&quot;title&quot;:&quot;nextPage exists?&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;boolean-condition&quot;,&quot;version&quot;:&quot;2.3&quot;},&quot;operation&quot;:&quot;property_exists&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;storage-1&quot;:{&quot;name&quot;:&quot;storage-1&quot;,&quot;properties&quot;:{&quot;scope&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Current Run&quot;},&quot;key&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;next_page&quot;},&quot;value&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.http-client-1.response.body.nextPage&quot;}},&quot;metadata&quot;:{&quot;title&quot;:&quot;Set stored next_page&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;storage&quot;,&quot;version&quot;:&quot;1.4&quot;},&quot;operation&quot;:&quot;set&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]},&quot;break-loop-1&quot;:{&quot;name&quot;:&quot;break-loop-1&quot;,&quot;properties&quot;:{},&quot;metadata&quot;:{&quot;title&quot;:&quot;Break loop&quot;,&quot;connector&quot;:{&quot;name&quot;:&quot;break-loop&quot;,&quot;version&quot;:&quot;1.0&quot;},&quot;operation&quot;:&quot;break&quot;,&quot;output_schema&quot;:{},&quot;error_handling&quot;:{}},&quot;errors&quot;:[]}},&quot;structure&quot;:[{&quot;name&quot;:&quot;loop-1&quot;,&quot;type&quot;:&quot;loop&quot;,&quot;content&quot;:{&quot;_loop&quot;:[{&quot;name&quot;:&quot;storage-2&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;asana-1&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;loop-2&quot;,&quot;type&quot;:&quot;loop&quot;,&quot;content&quot;:{&quot;_loop&quot;:[{&quot;name&quot;:&quot;asana-2&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;break-loop-3&quot;,&quot;type&quot;:&quot;break&quot;,&quot;content&quot;:{},&quot;target&quot;:&quot;loop-2&quot;},{&quot;name&quot;:&quot;storage-3&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}]}},{&quot;name&quot;:&quot;break-loop-2&quot;,&quot;type&quot;:&quot;break&quot;,&quot;content&quot;:{},&quot;target&quot;:&quot;loop-1&quot;},{&quot;name&quot;:&quot;storage-4&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;boolean-condition-1&quot;,&quot;type&quot;:&quot;branch&quot;,&quot;content&quot;:{&quot;true&quot;:[{&quot;name&quot;:&quot;storage-1&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}],&quot;false&quot;:[{&quot;name&quot;:&quot;break-loop-1&quot;,&quot;type&quot;:&quot;break&quot;,&quot;content&quot;:{},&quot;target&quot;:&quot;loop-1&quot;}]}}]}}],&quot;version&quot;:&quot;1.0.0&quot;}
+
+{
+  "stepData": {
+    "loop-1": {
+      "name": "loop-1",
+      "properties": {
+        
+      },
+      "metadata": {
+        "title": "Loop",
+        "connector": {
+          "name": "loop",
+          "version": "1.1"
+        },
+        "operation": "loop_forever",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "storage-2": {
+      "name": "storage-2",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "value": "Current Run"
+        },
+        "key": {
+          "type": "string",
+          "value": "last_date"
+        },
+        "default_value": {
+          "type": "string",
+          "value": "2021-03-09T09:31:07.133Z"
+        }
+      },
+      "metadata": {
+        "title": "Get last_date",
+        "connector": {
+          "name": "storage",
+          "version": "1.4"
+        },
+        "operation": "get",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "asana-1": {
+      "name": "asana-1",
+      "properties": {
+        "access_token": {
+          "type": "jsonpath",
+          "value": "$.auth.access_token"
+        },
+        "gid": {
+          "type": "string",
+          "value": "14389630051220"
+        },
+        "search_parameters": {
+          "type": "array",
+          "value": [
+            {
+              "type": "object",
+              "value": {
+                "name": {
+                  "type": "string",
+                  "value": "projects.any"
+                },
+                "value": {
+                  "type": "string",
+                  "value": "1200039554335056"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "value": {
+                "name": {
+                  "type": "string",
+                  "value": "created_at.after"
+                },
+                "value": {
+                  "type": "jsonpath",
+                  "value": "$.steps.storage-2.value"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "value": {
+                "name": {
+                  "type": "string",
+                  "value": "resource_subtype"
+                },
+                "value": {
+                  "type": "string",
+                  "value": "task"
+                }
+              }
+            }
+          ]
+        },
+        "sort_by": {
+          "type": "string",
+          "value": "created_at"
+        },
+        "sort_ascending": {
+          "type": "boolean",
+          "value": true
+        }
+      },
+      "metadata": {
+        "auth_uuid": "aaaaaa",
+        "title": "Asana",
+        "connector": {
+          "name": "asana",
+          "version": "5.2"
+        },
+        "operation": "search_tasks",
+        "output_schema": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "gid": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "resource_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "gid",
+                  "name",
+                  "resource_type"
+                ]
+              }
+            }
+          }
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "loop-2": {
+      "name": "loop-2",
+      "properties": {
+        "array": {
+          "type": "jsonpath",
+          "value": "$.steps.asana-1.data"
+        }
+      },
+      "metadata": {
+        "title": "Loop",
+        "connector": {
+          "name": "loop",
+          "version": "1.1"
+        },
+        "operation": "loop_array",
+        "output_schema": {
+          "type": "object",
+          "$schema": "http://json-schema.org/draft-03/schema",
+          "id": "http://jsonschema.net",
+          "required": true,
+          "additionalProperties": false,
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "number",
+                "object",
+                "array",
+                "boolean",
+                "null"
+              ],
+              "id": "http://jsonschema.net/item"
+            },
+            "count": {
+              "type": "number",
+              "id": "http://jsonschema.net/total"
+            },
+            "index": {
+              "type": "number",
+              "id": "http://jsonschema.net/index"
+            },
+            "is_first": {
+              "type": "boolean",
+              "id": "http://jsonschema.net/is_first"
+            },
+            "is_last": {
+              "type": "boolean",
+              "id": "http://jsonschema.net/is_last"
+            }
+          }
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "asana-2": {
+      "name": "asana-2",
+      "properties": {
+        "access_token": {
+          "type": "jsonpath",
+          "value": "$.auth.access_token"
+        },
+        "workspace_id": {
+          "type": "string",
+          "value": "14389630051220"
+        },
+        "task_id": {
+          "type": "jsonpath",
+          "value": "$.steps.loop-2.value.gid"
+        }
+      },
+      "metadata": {
+        "auth_uuid": "aaaaaa",
+        "title": "Asana",
+        "connector": {
+          "name": "asana",
+          "version": "4.15"
+        },
+        "operation": "get_task",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "break-loop-3": {
+      "name": "break-loop-3",
+      "properties": {
+        
+      },
+      "metadata": {
+        "title": "Break loop",
+        "connector": {
+          "name": "break-loop",
+          "version": "1.0"
+        },
+        "operation": "break",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "storage-3": {
+      "name": "storage-3",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "value": "Current Run"
+        },
+        "key": {
+          "type": "string",
+          "value": "last_date"
+        },
+        "value": {
+          "type": "jsonpath",
+          "value": "$.steps.asana-2.data.created_at"
+        }
+      },
+      "metadata": {
+        "title": "Set last_date",
+        "connector": {
+          "name": "storage",
+          "version": "1.4"
+        },
+        "operation": "set",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "break-loop-2": {
+      "name": "break-loop-2",
+      "properties": {
+        
+      },
+      "metadata": {
+        "title": "Break loop",
+        "connector": {
+          "name": "break-loop",
+          "version": "1.0"
+        },
+        "operation": "break",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "storage-4": {
+      "name": "storage-4",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "value": "Current Run"
+        },
+        "key": {
+          "type": "string",
+          "value": "last_date"
+        },
+        "default_value": {
+          "type": "string",
+          "value": "1900-01-01"
+        }
+      },
+      "metadata": {
+        "title": "Get last_date",
+        "connector": {
+          "name": "storage",
+          "version": "1.4"
+        },
+        "operation": "get",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "boolean-condition-1": {
+      "name": "boolean-condition-1",
+      "properties": {
+        "property": {
+          "type": "jsonpath",
+          "value": "$.steps.http-client-1.response.body.nextPage"
+        }
+      },
+      "metadata": {
+        "title": "nextPage exists?",
+        "connector": {
+          "name": "boolean-condition",
+          "version": "2.3"
+        },
+        "operation": "property_exists",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "storage-1": {
+      "name": "storage-1",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "value": "Current Run"
+        },
+        "key": {
+          "type": "string",
+          "value": "next_page"
+        },
+        "value": {
+          "type": "jsonpath",
+          "value": "$.steps.http-client-1.response.body.nextPage"
+        }
+      },
+      "metadata": {
+        "title": "Set stored next_page",
+        "connector": {
+          "name": "storage",
+          "version": "1.4"
+        },
+        "operation": "set",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    },
+    "break-loop-1": {
+      "name": "break-loop-1",
+      "properties": {
+        
+      },
+      "metadata": {
+        "title": "Break loop",
+        "connector": {
+          "name": "break-loop",
+          "version": "1.0"
+        },
+        "operation": "break",
+        "output_schema": {
+          
+        },
+        "error_handling": {
+          
+        }
+      },
+      "errors": [
+        
+      ]
+    }
+  },
+  "structure": [
+    {
+      "name": "loop-1",
+      "type": "loop",
+      "content": {
+        "_loop": [
+          {
+            "name": "storage-2",
+            "type": "normal",
+            "content": {
+              
+            }
+          },
+          {
+            "name": "asana-1",
+            "type": "normal",
+            "content": {
+              
+            }
+          },
+          {
+            "name": "loop-2",
+            "type": "loop",
+            "content": {
+              "_loop": [
+                {
+                  "name": "asana-2",
+                  "type": "normal",
+                  "content": {
+                    
+                  }
+                },
+                {
+                  "name": "break-loop-3",
+                  "type": "break",
+                  "content": {
+                    
+                  },
+                  "target": "loop-2"
+                },
+                {
+                  "name": "storage-3",
+                  "type": "normal",
+                  "content": {
+                    
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "break-loop-2",
+            "type": "break",
+            "content": {
+              
+            },
+            "target": "loop-1"
+          },
+          {
+            "name": "storage-4",
+            "type": "normal",
+            "content": {
+              
+            }
+          },
+          {
+            "name": "boolean-condition-1",
+            "type": "branch",
+            "content": {
+              "true": [
+                {
+                  "name": "storage-1",
+                  "type": "normal",
+                  "content": {
+                    
+                  }
+                }
+              ],
+              "false": [
+                {
+                  "name": "break-loop-1",
+                  "type": "break",
+                  "content": {
+                    
+                  },
+                  "target": "loop-1"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "version": "1.0.0"
+}
