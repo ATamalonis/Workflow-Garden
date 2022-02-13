@@ -1,1 +1,576 @@
+{&quot;stepData&quot;:{&quot;text-helpers-15&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;__typename&quot;:&quot;ConnectorSnippetDataMetadataConnector&quot;,&quot;name&quot;:&quot;text-helpers&quot;,&quot;description&quot;:&quot;Text manipulation utilities such as splitting, upper casing and truncating&quot;,&quot;version&quot;:&quot;3.0&quot;},&quot;__typename&quot;:&quot;ConnectorSnippetDataMetadata&quot;,&quot;output_schema&quot;:{},&quot;title&quot;:&quot;REPLACE ME - Documentation&quot;,&quot;operation&quot;:&quot;concatenate&quot;},&quot;name&quot;:&quot;text-helpers-15&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;values&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;You can delete this step after reading&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Place your business logic here.\\n\\nThis nested loop will process the paginated results sequentially. If you are able to process the results in parallel, you can replace this entire loop with a Fire and Forget Call Workflow step, and then place your business logic inside of that callable workflow. Doing so means Tray will process each page of results in parallel, greatly speeding up execution time.&quot;}]},&quot;separator&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;&quot;}}},&quot;loop-3&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;loop&quot;,&quot;version&quot;:&quot;1.1&quot;},&quot;description&quot;:&quot;Consider replacing this loop with a Fire and Forget Call Workflow step. This would allow parallel processing of the search results&quot;,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{&quot;$schema&quot;:&quot;http://json-schema.org/draft-04/schema#&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;is_last&quot;:{&quot;type&quot;:&quot;boolean&quot;},&quot;branch_name&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;count&quot;:{&quot;type&quot;:&quot;number&quot;},&quot;is_first&quot;:{&quot;type&quot;:&quot;boolean&quot;},&quot;index&quot;:{&quot;type&quot;:&quot;number&quot;},&quot;value&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;start_on&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;parent&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;workspace&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;}}},&quot;projects&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;items&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;}}}},&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;notes&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;assignee_status&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;custom_fields&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;items&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;text_value&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;display_value&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;type&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_subtype&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;created_by&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;}}},&quot;enabled&quot;:{&quot;type&quot;:&quot;boolean&quot;}}}},&quot;created_at&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;completed&quot;:{&quot;type&quot;:&quot;boolean&quot;},&quot;hearted&quot;:{&quot;type&quot;:&quot;boolean&quot;},&quot;due_on&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;memberships&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;items&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;project&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;}}},&quot;section&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;}}}}}},&quot;tags&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;items&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;}}}},&quot;completed_at&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;followers&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;items&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;}}}},&quot;html_notes&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;hearts&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;items&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;user&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;gid&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;resource_type&quot;:{&quot;type&quot;:&quot;string&quot;}}}}}},&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;due_at&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;assignee&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;modified_at&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;num_hearts&quot;:{&quot;type&quot;:&quot;number&quot;}}}}},&quot;title&quot;:&quot;Loop through tasks in page&quot;,&quot;operation&quot;:&quot;loop_array&quot;},&quot;name&quot;:&quot;loop-3&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;array&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.asana-3.data&quot;}}},&quot;loop-2000&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;loop&quot;,&quot;version&quot;:&quot;1.1&quot;},&quot;error_handling&quot;:{},&quot;output_schema&quot;:{&quot;$schema&quot;:&quot;http://json-schema.org/draft-03/schema&quot;,&quot;id&quot;:&quot;http://jsonschema.net&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;index&quot;:{&quot;id&quot;:&quot;http://jsonschema.net/index&quot;,&quot;type&quot;:&quot;number&quot;}},&quot;required&quot;:true},&quot;title&quot;:&quot;Loop through pages&quot;,&quot;operation&quot;:&quot;loop_forever&quot;},&quot;name&quot;:&quot;loop-2000&quot;,&quot;type&quot;:&quot;CreateStep&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{}},&quot;boolean-condition-3&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;boolean-condition&quot;,&quot;version&quot;:&quot;2.3&quot;},&quot;description&quot;:&quot;Save the offset data for the next iteration of the loop, or break out of the loop if this is the last page of results.&quot;,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;Offset is null?&quot;,&quot;operation&quot;:&quot;boolean_condition&quot;},&quot;name&quot;:&quot;boolean-condition-3&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;strictness&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;All&quot;},&quot;conditions&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{&quot;value2&quot;:{&quot;type&quot;:&quot;null&quot;,&quot;value&quot;:null},&quot;value1&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.asana-3.next_page&quot;},&quot;comparison_type&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;===&quot;}}}]}}},&quot;break-loop-2000&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;break-loop&quot;,&quot;version&quot;:&quot;1.0&quot;},&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;Break loop&quot;,&quot;operation&quot;:&quot;break&quot;},&quot;name&quot;:&quot;break-loop-2000&quot;,&quot;type&quot;:&quot;CreateStep&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{}},&quot;text-helpers-14000&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;__typename&quot;:&quot;ConnectorSnippetDataMetadataConnector&quot;,&quot;name&quot;:&quot;text-helpers&quot;,&quot;description&quot;:&quot;Text manipulation utilities such as splitting, upper casing and truncating&quot;,&quot;version&quot;:&quot;3.0&quot;},&quot;__typename&quot;:&quot;ConnectorSnippetDataMetadata&quot;,&quot;output_schema&quot;:{},&quot;title&quot;:&quot;READ ME - Documentation&quot;,&quot;operation&quot;:&quot;concatenate&quot;},&quot;name&quot;:&quot;text-helpers-14000&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;values&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;You can delete this step after reading&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Asana paginates API call results in two ways. The general pagination provides a next_page attribute, which is used in this snippet. Asana Advanced Search does not use next_page, and requires manual pagination.\\n\\nThis snippet should NOT be used with Advanced Search.\\n\\nSee https://developers.asana.com/docs/pagination for more details.&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;The Asana step \\&quot;UPDATE - Get tasks in project\\&quot; is an example step. Update this step with your own auth, and make any call to Asana that returns paginated results, except for Advanced Search.&quot;}]},&quot;separator&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;&quot;}}},&quot;storage-10&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;storage&quot;,&quot;version&quot;:&quot;1.4&quot;},&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;Set offset&quot;,&quot;operation&quot;:&quot;set&quot;},&quot;name&quot;:&quot;storage-10&quot;,&quot;type&quot;:&quot;CreateStep&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;scope&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Current Run&quot;},&quot;value&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.asana-3.next_page.offset&quot;},&quot;key&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;offset&quot;}}},&quot;asana-3&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;asana&quot;,&quot;version&quot;:&quot;5.4&quot;},&quot;auth_uuid&quot;:&quot;e5b84580-b8ac-41ea-8e51-344b277e167e&quot;,&quot;description&quot;:null,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;UPDATE - Get tasks in project&quot;,&quot;operation&quot;:&quot;list_project_tasks&quot;},&quot;name&quot;:&quot;asana-3&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;access_token&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.auth.access_token&quot;},&quot;project_gid&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;1201449251036560&quot;},&quot;offset&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.storage-9.value&quot;},&quot;limit&quot;:{&quot;type&quot;:&quot;integer&quot;,&quot;value&quot;:100},&quot;workspace_gid&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;14389630051220&quot;}}},&quot;storage-9&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;storage&quot;,&quot;version&quot;:&quot;1.4&quot;},&quot;description&quot;:null,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;Get offset&quot;,&quot;operation&quot;:&quot;get&quot;},&quot;name&quot;:&quot;storage-9&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;scope&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Current Run&quot;},&quot;default_value&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;&quot;},&quot;key&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;offset&quot;}}}},&quot;structure&quot;:[{&quot;name&quot;:&quot;loop-2000&quot;,&quot;type&quot;:&quot;loop&quot;,&quot;content&quot;:{&quot;_loop&quot;:[{&quot;name&quot;:&quot;storage-9&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;asana-3&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;loop-3&quot;,&quot;type&quot;:&quot;loop&quot;,&quot;content&quot;:{&quot;_loop&quot;:[{&quot;name&quot;:&quot;text-helpers-15&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}]}},{&quot;name&quot;:&quot;boolean-condition-3&quot;,&quot;type&quot;:&quot;branch&quot;,&quot;content&quot;:{&quot;true&quot;:[{&quot;name&quot;:&quot;break-loop-2000&quot;,&quot;type&quot;:&quot;break&quot;,&quot;content&quot;:{},&quot;target&quot;:&quot;loop-2000&quot;}],&quot;false&quot;:[{&quot;name&quot;:&quot;storage-10&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}]}}]}},{&quot;name&quot;:&quot;text-helpers-14000&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}],&quot;version&quot;:&quot;1.0.0&quot;}
 
+{
+		"stepData": {
+			"text-helpers-15": {
+				"metadata": {
+					"connector": {
+						"__typename": "ConnectorSnippetDataMetadataConnector",
+						"name": "text-helpers",
+						"description": "Text manipulation utilities such as splitting, upper casing and truncating",
+						"version": "3.0"
+					},
+					"__typename": "ConnectorSnippetDataMetadata",
+					"output_schema": {},
+					"title": "REPLACE ME - Documentation",
+					"operation": "concatenate"
+				},
+				"name": "text-helpers-15",
+				"type": "SetStepData",
+				"errors": [],
+				"properties": {
+					"values": {
+						"type": "array",
+						"value": [
+							{
+								"type": "string",
+								"value": "You can delete this step after reading"
+							},
+							{
+								"type": "string",
+								"value": "Place your business logic here.\n\nThis nested loop will process the paginated results sequentially. If you are able to process the results in parallel, you can replace this entire loop with a Fire and Forget Call Workflow step, and then place your business logic inside of that callable workflow. Doing so means Tray will process each page of results in parallel, greatly speeding up execution time."
+							}
+						]
+					},
+					"separator": {
+						"type": "string",
+						"value": ""
+					}
+				}
+			},
+			"loop-3": {
+				"metadata": {
+					"connector": {
+						"name": "loop",
+						"version": "1.1"
+					},
+					"description": "Consider replacing this loop with a Fire and Forget Call Workflow step. This would allow parallel processing of the search results",
+					"error_handling": {},
+					"output_schema": {
+						"$schema": "http://json-schema.org/draft-04/schema#",
+						"type": "object",
+						"properties": {
+							"is_last": {
+								"type": "boolean"
+							},
+							"branch_name": {
+								"type": "string"
+							},
+							"count": {
+								"type": "number"
+							},
+							"is_first": {
+								"type": "boolean"
+							},
+							"index": {
+								"type": "number"
+							},
+							"value": {
+								"type": "object",
+								"properties": {
+									"start_on": {
+										"type": "string"
+									},
+									"parent": {
+										"type": "string"
+									},
+									"workspace": {
+										"type": "object",
+										"properties": {
+											"gid": {
+												"type": "string"
+											},
+											"resource_type": {
+												"type": "string"
+											}
+										}
+									},
+									"projects": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"gid": {
+													"type": "string"
+												},
+												"resource_type": {
+													"type": "string"
+												}
+											}
+										}
+									},
+									"gid": {
+										"type": "string"
+									},
+									"notes": {
+										"type": "string"
+									},
+									"assignee_status": {
+										"type": "string"
+									},
+									"custom_fields": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"text_value": {
+													"type": "string"
+												},
+												"display_value": {
+													"type": "string"
+												},
+												"gid": {
+													"type": "string"
+												},
+												"name": {
+													"type": "string"
+												},
+												"resource_type": {
+													"type": "string"
+												},
+												"type": {
+													"type": "string"
+												},
+												"resource_subtype": {
+													"type": "string"
+												},
+												"created_by": {
+													"type": "object",
+													"properties": {
+														"gid": {
+															"type": "string"
+														},
+														"name": {
+															"type": "string"
+														},
+														"resource_type": {
+															"type": "string"
+														}
+													}
+												},
+												"enabled": {
+													"type": "boolean"
+												}
+											}
+										}
+									},
+									"created_at": {
+										"type": "string"
+									},
+									"completed": {
+										"type": "boolean"
+									},
+									"hearted": {
+										"type": "boolean"
+									},
+									"due_on": {
+										"type": "string"
+									},
+									"memberships": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"project": {
+													"type": "object",
+													"properties": {
+														"gid": {
+															"type": "string"
+														},
+														"resource_type": {
+															"type": "string"
+														}
+													}
+												},
+												"section": {
+													"type": "object",
+													"properties": {
+														"gid": {
+															"type": "string"
+														},
+														"resource_type": {
+															"type": "string"
+														}
+													}
+												}
+											}
+										}
+									},
+									"tags": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"gid": {
+													"type": "string"
+												},
+												"name": {
+													"type": "string"
+												}
+											}
+										}
+									},
+									"completed_at": {
+										"type": "string"
+									},
+									"followers": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"gid": {
+													"type": "string"
+												},
+												"resource_type": {
+													"type": "string"
+												}
+											}
+										}
+									},
+									"html_notes": {
+										"type": "string"
+									},
+									"hearts": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"gid": {
+													"type": "string"
+												},
+												"user": {
+													"type": "object",
+													"properties": {
+														"gid": {
+															"type": "string"
+														},
+														"name": {
+															"type": "string"
+														},
+														"resource_type": {
+															"type": "string"
+														}
+													}
+												}
+											}
+										}
+									},
+									"name": {
+										"type": "string"
+									},
+									"due_at": {
+										"type": "string"
+									},
+									"assignee": {
+										"type": "string"
+									},
+									"modified_at": {
+										"type": "string"
+									},
+									"num_hearts": {
+										"type": "number"
+									}
+								}
+							}
+						}
+					},
+					"title": "Loop through tasks in page",
+					"operation": "loop_array"
+				},
+				"name": "loop-3",
+				"type": "SetStepData",
+				"errors": [],
+				"properties": {
+					"array": {
+						"type": "jsonpath",
+						"value": "$.steps.asana-3.data"
+					}
+				}
+			},
+			"loop-2000": {
+				"metadata": {
+					"connector": {
+						"name": "loop",
+						"version": "1.1"
+					},
+					"error_handling": {},
+					"output_schema": {
+						"$schema": "http://json-schema.org/draft-03/schema",
+						"id": "http://jsonschema.net",
+						"type": "object",
+						"properties": {
+							"index": {
+								"id": "http://jsonschema.net/index",
+								"type": "number"
+							}
+						},
+						"required": true
+					},
+					"title": "Loop through pages",
+					"operation": "loop_forever"
+				},
+				"name": "loop-2000",
+				"type": "CreateStep",
+				"errors": [],
+				"properties": {}
+			},
+			"boolean-condition-3": {
+				"metadata": {
+					"connector": {
+						"name": "boolean-condition",
+						"version": "2.3"
+					},
+					"description": "Save the offset data for the next iteration of the loop, or break out of the loop if this is the last page of results.",
+					"error_handling": {},
+					"output_schema": {},
+					"title": "Offset is null?",
+					"operation": "boolean_condition"
+				},
+				"name": "boolean-condition-3",
+				"type": "SetStepData",
+				"errors": [],
+				"properties": {
+					"strictness": {
+						"type": "string",
+						"value": "All"
+					},
+					"conditions": {
+						"type": "array",
+						"value": [
+							{
+								"type": "object",
+								"value": {
+									"value2": {
+										"type": "null",
+										"value": null
+									},
+									"value1": {
+										"type": "jsonpath",
+										"value": "$.steps.asana-3.next_page"
+									},
+									"comparison_type": {
+										"type": "string",
+										"value": "==="
+									}
+								}
+							}
+						]
+					}
+				}
+			},
+			"break-loop-2000": {
+				"metadata": {
+					"connector": {
+						"name": "break-loop",
+						"version": "1.0"
+					},
+					"error_handling": {},
+					"output_schema": {},
+					"title": "Break loop",
+					"operation": "break"
+				},
+				"name": "break-loop-2000",
+				"type": "CreateStep",
+				"errors": [],
+				"properties": {}
+			},
+			"text-helpers-14000": {
+				"metadata": {
+					"connector": {
+						"__typename": "ConnectorSnippetDataMetadataConnector",
+						"name": "text-helpers",
+						"description": "Text manipulation utilities such as splitting, upper casing and truncating",
+						"version": "3.0"
+					},
+					"__typename": "ConnectorSnippetDataMetadata",
+					"output_schema": {},
+					"title": "READ ME - Documentation",
+					"operation": "concatenate"
+				},
+				"name": "text-helpers-14000",
+				"type": "SetStepData",
+				"errors": [],
+				"properties": {
+					"values": {
+						"type": "array",
+						"value": [
+							{
+								"type": "string",
+								"value": "You can delete this step after reading"
+							},
+							{
+								"type": "string",
+								"value": "Asana paginates API call results in two ways. The general pagination provides a next_page attribute, which is used in this snippet. Asana Advanced Search does not use next_page, and requires manual pagination.\n\nThis snippet should NOT be used with Advanced Search.\n\nSee https://developers.asana.com/docs/pagination for more details."
+							},
+							{
+								"type": "string",
+								"value": "The Asana step \"UPDATE - Get tasks in project\" is an example step. Update this step with your own auth, and make any call to Asana that returns paginated results, except for Advanced Search."
+							}
+						]
+					},
+					"separator": {
+						"type": "string",
+						"value": ""
+					}
+				}
+			},
+			"storage-10": {
+				"metadata": {
+					"connector": {
+						"name": "storage",
+						"version": "1.4"
+					},
+					"error_handling": {},
+					"output_schema": {},
+					"title": "Set offset",
+					"operation": "set"
+				},
+				"name": "storage-10",
+				"type": "CreateStep",
+				"errors": [],
+				"properties": {
+					"scope": {
+						"type": "string",
+						"value": "Current Run"
+					},
+					"value": {
+						"type": "jsonpath",
+						"value": "$.steps.asana-3.next_page.offset"
+					},
+					"key": {
+						"type": "string",
+						"value": "offset"
+					}
+				}
+			},
+			"asana-3": {
+				"metadata": {
+					"connector": {
+						"name": "asana",
+						"version": "5.4"
+					},
+					"auth_uuid": "e5b84580-b8ac-41ea-8e51-344b277e167e",
+					"description": null,
+					"error_handling": {},
+					"output_schema": {},
+					"title": "UPDATE - Get tasks in project",
+					"operation": "list_project_tasks"
+				},
+				"name": "asana-3",
+				"type": "SetStepData",
+				"errors": [],
+				"properties": {
+					"access_token": {
+						"type": "jsonpath",
+						"value": "$.auth.access_token"
+					},
+					"project_gid": {
+						"type": "string",
+						"value": "1201449251036560"
+					},
+					"offset": {
+						"type": "jsonpath",
+						"value": "$.steps.storage-9.value"
+					},
+					"limit": {
+						"type": "integer",
+						"value": 100
+					},
+					"workspace_gid": {
+						"type": "string",
+						"value": "14389630051220"
+					}
+				}
+			},
+			"storage-9": {
+				"metadata": {
+					"connector": {
+						"name": "storage",
+						"version": "1.4"
+					},
+					"description": null,
+					"error_handling": {},
+					"output_schema": {},
+					"title": "Get offset",
+					"operation": "get"
+				},
+				"name": "storage-9",
+				"type": "SetStepData",
+				"errors": [],
+				"properties": {
+					"scope": {
+						"type": "string",
+						"value": "Current Run"
+					},
+					"default_value": {
+						"type": "string",
+						"value": ""
+					},
+					"key": {
+						"type": "string",
+						"value": "offset"
+					}
+				}
+			}
+		},
+		"structure": [
+			{
+				"name": "loop-2000",
+				"type": "loop",
+				"content": {
+					"_loop": [
+						{
+							"name": "storage-9",
+							"type": "normal",
+							"content": {}
+						},
+						{
+							"name": "asana-3",
+							"type": "normal",
+							"content": {}
+						},
+						{
+							"name": "loop-3",
+							"type": "loop",
+							"content": {
+								"_loop": [
+									{
+										"name": "text-helpers-15",
+										"type": "normal",
+										"content": {}
+									}
+								]
+							}
+						},
+						{
+							"name": "boolean-condition-3",
+							"type": "branch",
+							"content": {
+								"true": [
+									{
+										"name": "break-loop-2000",
+										"type": "break",
+										"content": {},
+										"target": "loop-2000"
+									}
+								],
+								"false": [
+									{
+										"name": "storage-10",
+										"type": "normal",
+										"content": {}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "text-helpers-14000",
+				"type": "normal",
+				"content": {}
+			}
+		],
+		"version": "1.0.0"
+	}
