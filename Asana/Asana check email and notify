@@ -1,0 +1,555 @@
+{&quot;stepData&quot;:{&quot;loop-3000&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;loop&quot;,&quot;version&quot;:&quot;1.1&quot;},&quot;error_handling&quot;:{},&quot;output_schema&quot;:{&quot;$schema&quot;:&quot;http://json-schema.org/draft-03/schema&quot;,&quot;id&quot;:&quot;http://jsonschema.net&quot;,&quot;additionalProperties&quot;:false,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;is_last&quot;:{&quot;id&quot;:&quot;http://jsonschema.net/is_last&quot;,&quot;type&quot;:&quot;boolean&quot;},&quot;count&quot;:{&quot;id&quot;:&quot;http://jsonschema.net/total&quot;,&quot;type&quot;:&quot;number&quot;},&quot;is_first&quot;:{&quot;id&quot;:&quot;http://jsonschema.net/is_first&quot;,&quot;type&quot;:&quot;boolean&quot;},&quot;index&quot;:{&quot;id&quot;:&quot;http://jsonschema.net/index&quot;,&quot;type&quot;:&quot;number&quot;},&quot;value&quot;:{}},&quot;required&quot;:true},&quot;title&quot;:&quot;DELETE Loop through GIDs&quot;,&quot;operation&quot;:&quot;loop_array&quot;},&quot;name&quot;:&quot;loop-3000&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;array&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.storage-7.value&quot;}}},&quot;text-helpers-1&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;text-helpers&quot;,&quot;version&quot;:&quot;1.15&quot;},&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;UPDATE Concstruct link&quot;,&quot;operation&quot;:&quot;concatenate&quot;},&quot;name&quot;:&quot;text-helpers-1&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;values&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;https://app.asana.com/0/0/&quot;},{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.loop-3000.value.gid&quot;}]}}},&quot;text-helpers-2&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;text-helpers&quot;,&quot;version&quot;:&quot;1.15&quot;},&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;Construct links&quot;,&quot;operation&quot;:&quot;concatenate&quot;},&quot;name&quot;:&quot;text-helpers-2&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;values&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.storage-8.value&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;https://app.asana.com/0/0/&quot;},{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.loop-2.value&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;\n\n&quot;}]}}},&quot;text-helpers-3000&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;__typename&quot;:&quot;ConnectorSnippetDataMetadataConnector&quot;,&quot;name&quot;:&quot;text-helpers&quot;,&quot;description&quot;:&quot;Text manipulation utilities such as splitting, upper casing and truncating&quot;,&quot;version&quot;:&quot;3.0&quot;},&quot;__typename&quot;:&quot;ConnectorSnippetDataMetadata&quot;,&quot;output_schema&quot;:{},&quot;title&quot;:&quot;READ ME Documentation&quot;,&quot;operation&quot;:&quot;concatenate&quot;},&quot;name&quot;:&quot;text-helpers-3000&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;values&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;This step is documentation and can be deleted after reading.&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;UPDATE Get user by email:\nupdate the email address field in this step to match the email address you want to check. If you have multiple email addresses, you could put this whole snippet inside of a loop and check one at a time.&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;UPDATE Add follower:\nupdate the task GID field to match the task you want to add the user to. For multiple tasks you can put this step inside of a loop and add the user as a follower one task at a time.&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;UPDATE Concstruct link:\nupdate the second text field to match the GID of the task. This link is formatted to point to the given task GID without needing to know the project the task belongs to. For multiple GIDs in one email, see the DELETE loop and the notes below.&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;UPDATE Send email:\nupdate the recipient email address to match the \&quot;Get user by email\&quot; step. Update any other email fields as needed. It may be helpful to explain in the body why the recipient is receiving this email and how to join Asana, if your goal is to have more people collaborate in Asana. Consider adding a Reply To email address.&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;DELETE Loop through GIDs:\nas mentioned, if you are processing multiple GIDs, this loop is provided to create one string containing multiple links to be used in the email body. Replace the Construct link step with this loop, duplicate the Get taskLinks step outside of the loop, and reference the result of that Get step in the email body. Point the input of this loop to a list containing the GIDs.&quot;}]},&quot;separator&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;&quot;}}},&quot;boolean-condition-2000&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;boolean-condition&quot;,&quot;version&quot;:&quot;2.2&quot;},&quot;auth_uuid&quot;:&quot;165e52f3-2d86-44df-85a3-e023e501a88b&quot;,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;User found?&quot;,&quot;operation&quot;:&quot;boolean_condition&quot;},&quot;name&quot;:&quot;boolean-condition-2000&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;strictness&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;All&quot;},&quot;conditions&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{&quot;value2&quot;:{&quot;type&quot;:&quot;null&quot;,&quot;value&quot;:null},&quot;value1&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.asana-6000.data&quot;},&quot;comparison_type&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;!==&quot;}}}]}}},&quot;storage-5&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;storage&quot;,&quot;version&quot;:&quot;1.4&quot;},&quot;auth_uuid&quot;:&quot;165e52f3-2d86-44df-85a3-e023e501a88b&quot;,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;Get taskLinks&quot;,&quot;operation&quot;:&quot;get&quot;},&quot;name&quot;:&quot;storage-5&quot;,&quot;type&quot;:&quot;CreateStep&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;scope&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Current Run&quot;},&quot;default_value&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;&quot;},&quot;key&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;taskLinks&quot;}}},&quot;asana-4&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;asana&quot;,&quot;version&quot;:&quot;4.15&quot;},&quot;auth_uuid&quot;:&quot;e5b84580-b8ac-41ea-8e51-344b277e167e&quot;,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;UPDATE Add follower&quot;,&quot;operation&quot;:&quot;add_followers_to_a_task&quot;},&quot;name&quot;:&quot;asana-4&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;access_token&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.auth.access_token&quot;},&quot;workspace_id&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;14389630051220&quot;},&quot;data&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{&quot;followers&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.asana-6000.data.gid&quot;,&quot;fallback&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;&quot;}}]}}},&quot;task_gid&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;&quot;}}},&quot;storage-6&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;storage&quot;,&quot;version&quot;:&quot;1.4&quot;},&quot;auth_uuid&quot;:&quot;165e52f3-2d86-44df-85a3-e023e501a88b&quot;,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;Set taskLinks&quot;,&quot;operation&quot;:&quot;set&quot;},&quot;name&quot;:&quot;storage-6&quot;,&quot;type&quot;:&quot;CreateStep&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;scope&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Current Run&quot;},&quot;value&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.steps.text-helpers-1.result&quot;},&quot;key&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;taskLinks&quot;}}},&quot;asana-6000&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;asana&quot;,&quot;version&quot;:&quot;5.4&quot;},&quot;auth_uuid&quot;:&quot;e5b84580-b8ac-41ea-8e51-344b277e167e&quot;,&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;UPDATE Get user by email&quot;,&quot;operation&quot;:&quot;get_user_by_email&quot;},&quot;name&quot;:&quot;asana-6000&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;access_token&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.auth.access_token&quot;},&quot;workspace_gid&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;14389630051220&quot;},&quot;email&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;&quot;}}},&quot;send-email-1&quot;:{&quot;metadata&quot;:{&quot;connector&quot;:{&quot;name&quot;:&quot;send-email&quot;,&quot;version&quot;:&quot;3.0&quot;},&quot;error_handling&quot;:{},&quot;output_schema&quot;:{},&quot;title&quot;:&quot;UPDATE Send Email&quot;,&quot;operation&quot;:&quot;send_text_email&quot;},&quot;name&quot;:&quot;send-email-1&quot;,&quot;type&quot;:&quot;SetStepData&quot;,&quot;errors&quot;:[],&quot;properties&quot;:{&quot;public_url&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;$.env.public_url&quot;},&quot;reply_to&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{}},&quot;subject&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Asana link to your task&quot;},&quot;from&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;&quot;},&quot;email&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;notifications@m.traymail.io&quot;}}},&quot;to&quot;:{&quot;type&quot;:&quot;array&quot;,&quot;value&quot;:[{&quot;type&quot;:&quot;object&quot;,&quot;value&quot;:{&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;&quot;},&quot;email&quot;:{&quot;type&quot;:&quot;jsonpath&quot;,&quot;value&quot;:&quot;&quot;}}}]},&quot;content&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;The following task(s) have been created in Asana:\n{$.steps.text-helpers-1.result}\n\nIn Asana you can track tasks and collaborate on work.&quot;}}}},&quot;structure&quot;:[{&quot;name&quot;:&quot;text-helpers-3000&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;loop-3000&quot;,&quot;type&quot;:&quot;loop&quot;,&quot;content&quot;:{&quot;_loop&quot;:[{&quot;name&quot;:&quot;storage-5&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;text-helpers-2&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;storage-6&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}]}},{&quot;name&quot;:&quot;boolean-condition-2000&quot;,&quot;type&quot;:&quot;branch&quot;,&quot;content&quot;:{&quot;true&quot;:[{&quot;name&quot;:&quot;asana-4&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}],&quot;false&quot;:[{&quot;name&quot;:&quot;text-helpers-1&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}},{&quot;name&quot;:&quot;send-email-1&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}]}},{&quot;name&quot;:&quot;asana-6000&quot;,&quot;type&quot;:&quot;normal&quot;,&quot;content&quot;:{}}],&quot;version&quot;:&quot;1.0.0&quot;}
+
+{
+  "stepData": {
+    "loop-3000": {
+      "metadata": {
+        "connector": {
+          "name": "loop",
+          "version": "1.1"
+        },
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          "$schema": "http://json-schema.org/draft-03/schema",
+          "id": "http://jsonschema.net",
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "is_last": {
+              "id": "http://jsonschema.net/is_last",
+              "type": "boolean"
+            },
+            "count": {
+              "id": "http://jsonschema.net/total",
+              "type": "number"
+            },
+            "is_first": {
+              "id": "http://jsonschema.net/is_first",
+              "type": "boolean"
+            },
+            "index": {
+              "id": "http://jsonschema.net/index",
+              "type": "number"
+            },
+            "value": {
+              
+            }
+          },
+          "required": true
+        },
+        "title": "DELETE Loop through GIDs",
+        "operation": "loop_array"
+      },
+      "name": "loop-3000",
+      "type": "SetStepData",
+      "errors": [
+        
+      ],
+      "properties": {
+        "array": {
+          "type": "jsonpath",
+          "value": "$.steps.storage-7.value"
+        }
+      }
+    },
+    "text-helpers-1": {
+      "metadata": {
+        "connector": {
+          "name": "text-helpers",
+          "version": "1.15"
+        },
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          
+        },
+        "title": "UPDATE Concstruct link",
+        "operation": "concatenate"
+      },
+      "name": "text-helpers-1",
+      "type": "SetStepData",
+      "errors": [
+        
+      ],
+      "properties": {
+        "values": {
+          "type": "array",
+          "value": [
+            {
+              "type": "string",
+              "value": "https://app.asana.com/0/0/"
+            },
+            {
+              "type": "jsonpath",
+              "value": "$.steps.loop-3000.value.gid"
+            }
+          ]
+        }
+      }
+    },
+    "text-helpers-2": {
+      "metadata": {
+        "connector": {
+          "name": "text-helpers",
+          "version": "1.15"
+        },
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          
+        },
+        "title": "Construct links",
+        "operation": "concatenate"
+      },
+      "name": "text-helpers-2",
+      "type": "SetStepData",
+      "errors": [
+        
+      ],
+      "properties": {
+        "values": {
+          "type": "array",
+          "value": [
+            {
+              "type": "jsonpath",
+              "value": "$.steps.storage-8.value"
+            },
+            {
+              "type": "string",
+              "value": "https://app.asana.com/0/0/"
+            },
+            {
+              "type": "jsonpath",
+              "value": "$.steps.loop-2.value"
+            },
+            {
+              "type": "string",
+              "value": "\n\n"
+            }
+          ]
+        }
+      }
+    },
+    "text-helpers-3000": {
+      "metadata": {
+        "connector": {
+          "__typename": "ConnectorSnippetDataMetadataConnector",
+          "name": "text-helpers",
+          "description": "Text manipulation utilities such as splitting, upper casing and truncating",
+          "version": "3.0"
+        },
+        "__typename": "ConnectorSnippetDataMetadata",
+        "output_schema": {
+          
+        },
+        "title": "READ ME Documentation",
+        "operation": "concatenate"
+      },
+      "name": "text-helpers-3000",
+      "type": "SetStepData",
+      "errors": [
+        
+      ],
+      "properties": {
+        "values": {
+          "type": "array",
+          "value": [
+            {
+              "type": "string",
+              "value": "This step is documentation and can be deleted after reading."
+            },
+            {
+              "type": "string",
+              "value": "UPDATE Get user by email:\nupdate the email address field in this step to match the email address you want to check. If you have multiple email addresses, you could put this whole snippet inside of a loop and check one at a time."
+            },
+            {
+              "type": "string",
+              "value": "UPDATE Add follower:\nupdate the task GID field to match the task you want to add the user to. For multiple tasks you can put this step inside of a loop and add the user as a follower one task at a time."
+            },
+            {
+              "type": "string",
+              "value": "UPDATE Concstruct link:\nupdate the second text field to match the GID of the task. This link is formatted to point to the given task GID without needing to know the project the task belongs to. For multiple GIDs in one email, see the DELETE loop and the notes below."
+            },
+            {
+              "type": "string",
+              "value": "UPDATE Send email:\nupdate the recipient email address to match the \"Get user by email\" step. Update any other email fields as needed. It may be helpful to explain in the body why the recipient is receiving this email and how to join Asana, if your goal is to have more people collaborate in Asana. Consider adding a Reply To email address."
+            },
+            {
+              "type": "string",
+              "value": "DELETE Loop through GIDs:\nas mentioned, if you are processing multiple GIDs, this loop is provided to create one string containing multiple links to be used in the email body. Replace the Construct link step with this loop, duplicate the Get taskLinks step outside of the loop, and reference the result of that Get step in the email body. Point the input of this loop to a list containing the GIDs."
+            }
+          ]
+        },
+        "separator": {
+          "type": "string",
+          "value": ""
+        }
+      }
+    },
+    "boolean-condition-2000": {
+      "metadata": {
+        "connector": {
+          "name": "boolean-condition",
+          "version": "2.2"
+        },
+        "auth_uuid": "165e52f3-2d86-44df-85a3-e023e501a88b",
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          
+        },
+        "title": "User found?",
+        "operation": "boolean_condition"
+      },
+      "name": "boolean-condition-2000",
+      "type": "SetStepData",
+      "errors": [
+        
+      ],
+      "properties": {
+        "strictness": {
+          "type": "string",
+          "value": "All"
+        },
+        "conditions": {
+          "type": "array",
+          "value": [
+            {
+              "type": "object",
+              "value": {
+                "value2": {
+                  "type": "null",
+                  "value": null
+                },
+                "value1": {
+                  "type": "jsonpath",
+                  "value": "$.steps.asana-6000.data"
+                },
+                "comparison_type": {
+                  "type": "string",
+                  "value": "!=="
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "storage-5": {
+      "metadata": {
+        "connector": {
+          "name": "storage",
+          "version": "1.4"
+        },
+        "auth_uuid": "165e52f3-2d86-44df-85a3-e023e501a88b",
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          
+        },
+        "title": "Get taskLinks",
+        "operation": "get"
+      },
+      "name": "storage-5",
+      "type": "CreateStep",
+      "errors": [
+        
+      ],
+      "properties": {
+        "scope": {
+          "type": "string",
+          "value": "Current Run"
+        },
+        "default_value": {
+          "type": "string",
+          "value": ""
+        },
+        "key": {
+          "type": "string",
+          "value": "taskLinks"
+        }
+      }
+    },
+    "asana-4": {
+      "metadata": {
+        "connector": {
+          "name": "asana",
+          "version": "4.15"
+        },
+        "auth_uuid": "e5b84580-b8ac-41ea-8e51-344b277e167e",
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          
+        },
+        "title": "UPDATE Add follower",
+        "operation": "add_followers_to_a_task"
+      },
+      "name": "asana-4",
+      "type": "SetStepData",
+      "errors": [
+        
+      ],
+      "properties": {
+        "access_token": {
+          "type": "jsonpath",
+          "value": "$.auth.access_token"
+        },
+        "workspace_id": {
+          "type": "string",
+          "value": "14389630051220"
+        },
+        "data": {
+          "type": "object",
+          "value": {
+            "followers": {
+              "type": "array",
+              "value": [
+                {
+                  "type": "jsonpath",
+                  "value": "$.steps.asana-6000.data.gid",
+                  "fallback": {
+                    "type": "string",
+                    "value": ""
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "task_gid": {
+          "type": "jsonpath",
+          "value": ""
+        }
+      }
+    },
+    "storage-6": {
+      "metadata": {
+        "connector": {
+          "name": "storage",
+          "version": "1.4"
+        },
+        "auth_uuid": "165e52f3-2d86-44df-85a3-e023e501a88b",
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          
+        },
+        "title": "Set taskLinks",
+        "operation": "set"
+      },
+      "name": "storage-6",
+      "type": "CreateStep",
+      "errors": [
+        
+      ],
+      "properties": {
+        "scope": {
+          "type": "string",
+          "value": "Current Run"
+        },
+        "value": {
+          "type": "jsonpath",
+          "value": "$.steps.text-helpers-1.result"
+        },
+        "key": {
+          "type": "string",
+          "value": "taskLinks"
+        }
+      }
+    },
+    "asana-6000": {
+      "metadata": {
+        "connector": {
+          "name": "asana",
+          "version": "5.4"
+        },
+        "auth_uuid": "e5b84580-b8ac-41ea-8e51-344b277e167e",
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          
+        },
+        "title": "UPDATE Get user by email",
+        "operation": "get_user_by_email"
+      },
+      "name": "asana-6000",
+      "type": "SetStepData",
+      "errors": [
+        
+      ],
+      "properties": {
+        "access_token": {
+          "type": "jsonpath",
+          "value": "$.auth.access_token"
+        },
+        "workspace_gid": {
+          "type": "string",
+          "value": "14389630051220"
+        },
+        "email": {
+          "type": "jsonpath",
+          "value": ""
+        }
+      }
+    },
+    "send-email-1": {
+      "metadata": {
+        "connector": {
+          "name": "send-email",
+          "version": "3.0"
+        },
+        "error_handling": {
+          
+        },
+        "output_schema": {
+          
+        },
+        "title": "UPDATE Send Email",
+        "operation": "send_text_email"
+      },
+      "name": "send-email-1",
+      "type": "SetStepData",
+      "errors": [
+        
+      ],
+      "properties": {
+        "public_url": {
+          "type": "jsonpath",
+          "value": "$.env.public_url"
+        },
+        "reply_to": {
+          "type": "object",
+          "value": {
+            
+          }
+        },
+        "subject": {
+          "type": "string",
+          "value": "Asana link to your task"
+        },
+        "from": {
+          "type": "object",
+          "value": {
+            "name": {
+              "type": "string",
+              "value": ""
+            },
+            "email": {
+              "type": "string",
+              "value": "notifications@m.traymail.io"
+            }
+          }
+        },
+        "to": {
+          "type": "array",
+          "value": [
+            {
+              "type": "object",
+              "value": {
+                "name": {
+                  "type": "string",
+                  "value": ""
+                },
+                "email": {
+                  "type": "jsonpath",
+                  "value": ""
+                }
+              }
+            }
+          ]
+        },
+        "content": {
+          "type": "string",
+          "value": "The following task(s) have been created in Asana:\n{$.steps.text-helpers-1.result}\n\nIn Asana you can track tasks and collaborate on work."
+        }
+      }
+    }
+  },
+  "structure": [
+    {
+      "name": "text-helpers-3000",
+      "type": "normal",
+      "content": {
+        
+      }
+    },
+    {
+      "name": "loop-3000",
+      "type": "loop",
+      "content": {
+        "_loop": [
+          {
+            "name": "storage-5",
+            "type": "normal",
+            "content": {
+              
+            }
+          },
+          {
+            "name": "text-helpers-2",
+            "type": "normal",
+            "content": {
+              
+            }
+          },
+          {
+            "name": "storage-6",
+            "type": "normal",
+            "content": {
+              
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "boolean-condition-2000",
+      "type": "branch",
+      "content": {
+        "true": [
+          {
+            "name": "asana-4",
+            "type": "normal",
+            "content": {
+              
+            }
+          }
+        ],
+        "false": [
+          {
+            "name": "text-helpers-1",
+            "type": "normal",
+            "content": {
+              
+            }
+          },
+          {
+            "name": "send-email-1",
+            "type": "normal",
+            "content": {
+              
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "asana-6000",
+      "type": "normal",
+      "content": {
+        
+      }
+    }
+  ],
+  "version": "1.0.0"
+}
